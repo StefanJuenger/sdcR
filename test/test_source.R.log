@@ -1,0 +1,16 @@
+> 
+> 
+> # fancy comment
+> x <- 1
+> x
+[1] 1
+> y # produces an error
+Error in eval(expr, envir, enclos): object 'y' not found
+> 
+> # shit, doesn't work
+> bla <- "bla"
+> 
+> plot(1:100)
+> 
+> 
+> 

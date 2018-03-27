@@ -4,19 +4,27 @@
 \alias{produce_log_file}
 \title{Evaluate R Source File and Write It to Log File}
 \usage{
-produce_log_file(source_file, log_file)
+produce_log_file(source_file, log_file,
+  start_code_marker = ".*# PLACE CODE HERE ---*\\r\\n",
+  stop_code_marker = "# STOP ADDING CODE BELOW.*")
 }
 \arguments{
 \item{source_file}{character string. Location and name of R source file that
-should be evaluated and logged. Note that the 3 last lines of this source
-file are reserved for this function. Accordingly, this function should be
-placed there. They get deleted on the fly after execution. Therefore, they
-won't appear in the log file.}
+should be evaluated and logged. Note that the last lines of this source
+file is reserved for this function. Accordingly, this function should be
+placed there. The line gets deleted on the fly after execution. Therefore,
+it won't appear in the log file.}
 
 \item{log_file}{character string. Location and name of log file to which logs
 are written}
+
+\item{start_code_marker}{character string. Regular expression siginaling
+where the user can start to write some code}
+
+\item{stop_code_marker}{character string. Regular expression signaling where
+the user has to stop to write some code}
 }
 \description{
 Mimics Stata's log file function. The function expects to be placed at the
-bottom (last 3 lines) of the R script that should be logged.
+bottom of the R script that should be logged.
 }

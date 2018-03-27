@@ -1,22 +1,32 @@
 #' Evaluate R Source File and Write It to Log File
 #'
 #' Mimics Stata's log file function. The function expects to be placed at the
-#' bottom (last 3 lines) of the R script that should be logged.
+#' bottom of the R script that should be logged.
 #'
 #' @param source_file character string. Location and name of R source file that
-#'   should be evaluated and logged. Note that the 3 last lines of this source
-#'   file are reserved for this function. Accordingly, this function should be
-#'   placed there. They get deleted on the fly after execution. Therefore, they
-#'   won't appear in the log file.
+#'   should be evaluated and logged. Note that the last lines of this source
+#'   file is reserved for this function. Accordingly, this function should be
+#'   placed there. The line gets deleted on the fly after execution. Therefore,
+#'   it won't appear in the log file.
 #'
 #' @param log_file character string. Location and name of log file to which logs
 #'   are written
 #'
+#' @param start_code_marker character string. Regular expression siginaling
+#'   where the user can start to write some code
+#'
+#' @param stop_code_marker character string. Regular expression signaling where
+#'   the user has to stop to write some code
+#'
 #' @importFrom magrittr %>%
+#'
+#' @export
 #'
 
 
-produce_log_file <- function (source_file, log_file) {
+produce_log_file <- function (source_file, log_file,
+                              start_code_marker = ".*# PLACE CODE HERE ---*\r\n",
+                              stop_code_marker = "# STOP ADDING CODE BELOW.*") {
 
   source_file <-
 
@@ -55,10 +65,10 @@ produce_log_file <- function (source_file, log_file) {
 
     readr::read_file(log_file) %>%
 
-    gsub(".*# PLACE CODE HERE ---*\r\n",
+    gsub(start_code_marker,
          "", .) %>%
 
-    gsub("# STOP ADDING CODE BELOW.*", "", .) %>%
+    gsub(stop_code_marker, "", .) %>%
 
     # remove \r escape sequences
     gsub("\r", "", .)

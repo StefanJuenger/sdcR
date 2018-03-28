@@ -33,6 +33,6 @@ code_from_log <- function (log_file, code_file) {
     paste(., collapse = "\n")
 
   # save
-  readr::write_file(log_file2, code_file)
+  readr::write_file(log_file, code_file)
 
 }

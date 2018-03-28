@@ -5,7 +5,7 @@
 \title{Evaluate R Source File and Write It to Log File}
 \usage{
 produce_log_file(source_file, log_file,
-  start_code_marker = ".*# PLACE CODE HERE ---*\\r\\n",
+  start_code_marker = ".*# PLACE CODE HERE --*\\r\\n",
   stop_code_marker = "# STOP ADDING CODE BELOW.*")
 }
 \arguments{

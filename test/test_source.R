@@ -19,5 +19,7 @@ plot(1:100)
 # STOP ADDING CODE BELOW -------------------------------------------------------
 
 # DO NOT CHANGE OR EDIT THE FOLLOWING LINES. MUST REMAIN AT THE END OF THIS FILE
-produce_log_file(source_file = this_file,
-                 log_file = paste0(this_file, ".log"))
+sdcR::produce_log_file(source_file = this_file,
+                       log_file = paste0(this_file, ".log"))
+
+sdcR::code_from_log(paste0(this_file, ".log"), "./test/OUTPUTCODE.R")

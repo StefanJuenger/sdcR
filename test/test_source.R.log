@@ -13,4 +13,3 @@ Error in eval(expr, envir, enclos): object 'y' not found
 > plot(1:100)
 > 
 > 
-> 

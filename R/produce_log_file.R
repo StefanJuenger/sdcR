@@ -28,19 +28,27 @@ produce_log_file <- function (source_file, log_file,
                               start_code_marker = ".*# PLACE CODE HERE ---*\r\n",
                               stop_code_marker = "# STOP ADDING CODE BELOW.*") {
 
+  # load source file -----------------------------------------------------------
   source_file <-
 
     # read source file line by line
     readr::read_file(source_file) %>%
 
-    # delete line for function itself is called
-    gsub("produce_log_file(.*)", "", .) %>%
+    # delete everything that's not within the code place holders
+    gsub(start_code_marker, "", .) %>%
+
+    gsub(stop_code_marker, "", .) %>%
+
+    # # delete line for function itself is called
+    # gsub("produce_log_file(.*)", "", .) %>%
 
     # remove \r escape sequences
     gsub("\r", "", .)
 
-  # evaluate results
+  # evaluate results -----------------------------------------------------------
   results <- evaluate::evaluate(source_file)
+
+  # write results in sink ------------------------------------------------------
 
   # open file connection
   file_connection <- file(log_file)
@@ -60,21 +68,22 @@ produce_log_file <- function (source_file, log_file,
   # close results sink for file connection
   sink()
 
-  # re-read log file to remove admin stuff
-  log_file_to_manipulate <-
+  # # re-read log file to remove admin stuff -------------------------------------
+  # log_file_to_manipulate <-
+  #
+  #   readr::read_file(log_file) %>%
+  #
+  #   # remove start_* and stop_code_marker
+  #   gsub(start_code_marker,
+  #        "", .) %>%
+  #
+  #   gsub(stop_code_marker, "", .) %>%
+  #
+  #   # remove \r escape sequences
+  #   gsub("\r", "", .)
 
-    readr::read_file(log_file) %>%
-
-    gsub(start_code_marker,
-         "", .) %>%
-
-    gsub(stop_code_marker, "", .) %>%
-
-    # remove \r escape sequences
-    gsub("\r", "", .)
-
-  # write back to hard drive
-  readr::write_file(log_file_to_manipulate, log_file)
+  # # write back to hard drive
+  # readr::write_file(log_file_to_manipulate, log_file)
 
 
 }

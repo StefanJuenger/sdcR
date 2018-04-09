@@ -24,11 +24,10 @@ code_from_log <- function (log_file, code_file) {
     readr::read_lines(log_file) %>%
 
     # delete every line that was not typed in the command prompt
-    grep("> .*", ., value = TRUE) %>%
+    grep("^>|^[+] .*", ., value = TRUE) %>%
 
-    # delete preceding R command prompt signs (>)
-    gsub("> ", "", .) %>%
-
+    # delete preceding R command prompt signs (> and +)
+    gsub("^> |^[+] ", "", .) %>%
     # collapse to one large character string
     paste(., collapse = "\n")
 

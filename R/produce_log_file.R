@@ -12,9 +12,6 @@
 #' @param log_file character string. Location and name of log file to which logs
 #'   are written
 #'
-#' @param start_code_marker character string. Regular expression siginaling
-#'   where the user can start to write some code
-#'
 #' @param stop_code_marker character string. Regular expression signaling where
 #'   the user has to stop to write some code
 #'

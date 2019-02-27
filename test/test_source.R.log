@@ -1,4 +1,6 @@
 > 
+> # load package
+> library(magrittr)
 > 
 > # fancy comment
 > x <- 1
@@ -11,5 +13,12 @@ Error in eval(expr, envir, enclos): object 'y' not found
 > bla <- "bla"
 > 
 > plot(1:100)
+> 
+> 
+> y <-
++   x %>%
++   sum(c(., 2))
+> y
+[1] 4
 > 
 > 

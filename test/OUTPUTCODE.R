@@ -1,4 +1,6 @@
 
+# load package
+library(magrittr)
 
 # fancy comment
 x <- 1
@@ -9,4 +11,10 @@ y # produces an error
 bla <- "bla"
 
 plot(1:100)
+
+
+y <-
+  x %>%
+  sum(c(., 2))
+y
 

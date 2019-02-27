@@ -1,9 +1,6 @@
-# PLEASE DEFINE PATH AND NAME OF THIS FILE IN THE FOLLOWING VARIABLE
-this_file <- "./test/test_source.R"
 
-
-# PLACE CODE HERE --------------------------------------------------------------
-
+# load package
+library(magrittr)
 
 # fancy comment
 x <- 1
@@ -16,10 +13,16 @@ bla <- "bla"
 plot(1:100)
 
 
+y <-
+  x %>%
+  sum(c(., 2))
+y
+
+
 # STOP ADDING CODE BELOW -------------------------------------------------------
 
 # DO NOT CHANGE OR EDIT THE FOLLOWING LINES. MUST REMAIN AT THE END OF THIS FILE
-sdcR::produce_log_file(source_file = this_file,
-                       log_file = paste0(this_file, ".log"))
+sdcR::produce_log_file(source_file = current_file(),
+                       log_file = paste0(current_file(), ".log"))
 
-sdcR::code_from_log(paste0(this_file, ".log"), "./test/OUTPUTCODE.R")
+sdcR::code_from_log(paste0(current_file(), ".log"), "./test/OUTPUTCODE.R")

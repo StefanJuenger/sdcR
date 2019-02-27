@@ -1,12 +1,17 @@
 Package: sdcR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Some convenience functions for the Secure Data Center in combination with R
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Stefan Müller
+Maintainer: Stefan Müller <stefan.mueller@gesis.org>
+Description: People who work with R also want access to sensitive data which are
+    provided in the GESIS Secure Data Center (SDC). Yet, R often does not have
+    the same feature set as other software packages, such as Stata. This package
+    aims imitate some of these functions:
+    - Creating a log file from an R script
+    - Extracting an R script from a log file
+    - ...
+License: GPL
 Encoding: UTF-8
 LazyData: true
 Imports: magrittr,

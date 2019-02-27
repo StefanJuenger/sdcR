@@ -5,7 +5,6 @@
 \title{Evaluate R Source File and Write It to Log File}
 \usage{
 produce_log_file(source_file, log_file,
-  start_code_marker = ".*# PLACE CODE HERE --*\\r\\n",
   stop_code_marker = "# STOP ADDING CODE BELOW.*")
 }
 \arguments{
@@ -18,11 +17,11 @@ it won't appear in the log file.}
 \item{log_file}{character string. Location and name of log file to which logs
 are written}
 
-\item{start_code_marker}{character string. Regular expression siginaling
-where the user can start to write some code}
-
 \item{stop_code_marker}{character string. Regular expression signaling where
 the user has to stop to write some code}
+
+\item{start_code_marker}{character string. Regular expression siginaling
+where the user can start to write some code}
 }
 \description{
 Mimics Stata's log file function. The function expects to be placed at the

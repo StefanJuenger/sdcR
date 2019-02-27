@@ -25,7 +25,7 @@
 
 
 produce_log_file <- function (source_file, log_file,
-                              start_code_marker = ".*# PLACE CODE HERE --*\r\n",
+                              #start_code_marker = ".*# PLACE CODE HERE --*\r\n",
                               stop_code_marker = "# STOP ADDING CODE BELOW.*") {
 
 
@@ -36,7 +36,7 @@ produce_log_file <- function (source_file, log_file,
     readr::read_file(source_file) %>%
 
     # delete everything that's not within the code place holders
-    gsub(start_code_marker, "", .) %>%
+    #gsub(start_code_marker, "", .) %>%
 
     gsub(stop_code_marker, "", .) %>%
 

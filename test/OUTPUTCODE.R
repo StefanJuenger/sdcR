@@ -12,6 +12,10 @@ bla <- "bla"
 
 plot(1:100)
 
+source("./test/test_source_source.R", echo = TRUE)
+z <- 2
+z + 3
+
 
 y <-
   x %>%

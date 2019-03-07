@@ -19,9 +19,6 @@ are written}
 
 \item{stop_code_marker}{character string. Regular expression signaling where
 the user has to stop to write some code}
-
-\item{start_code_marker}{character string. Regular expression siginaling
-where the user can start to write some code}
 }
 \description{
 Mimics Stata's log file function. The function expects to be placed at the

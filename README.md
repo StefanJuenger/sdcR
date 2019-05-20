@@ -1,4 +1,6 @@
-People who work with R also want access to sensitive data which are provided in the GESIS Secure Data Center (SDC). Yet, R often does not have the same feature set as other software packages, such as Stata. This `R`-package aims to imitate some of these functions:
+**For any questions regarding your visit to the GESIS Secure Data Center (SDC), please contact us personally and always pay attention to the [guidelines for your visit](https://www.gesis.org/fileadmin/upload/dienstleistung/daten/secure_data_center/Guidelines_for_the_Secure_Data_Center_Safe_Room.pdf)**
+
+People who work with R also want access to sensitive data which are provided in the [GESIS Secure Data Center]( https://www.gesis.org/en/services/data-analysis/more-data-to-analyze/secure-data-center-sdc/). Yet, R often does not have the same feature set as other software packages, such as Stata. This `R`-package aims to imitate some of these functions:
   - Creating a log file from an R script
   - Extracting an R script from a log file
   - ...

@@ -56,3 +56,34 @@ sdcR::code_from_log("/path/to/your/fancy_R_script.R.log",
 ```
 
 As you might already imagine, what we will ask you to do in the SDC is again to use the first approach.
+
+## tl;dr
+1. Store the logfile we have sent to you in a folder of your choice
+2. Make sure its the only logfile in this folder
+3. Open [RStudio](https://www.rstudio.com/products/rstudio/download/#download) 
+4. `setwd()` to the folder of your file
+5. Copy & paste and then run the following command:
+
+```{r}
+if (!require(devtools)) {
+  install.packages("devtools")
+} else {
+  library(devtools)
+}
+
+
+if (!require(sdcR)) {
+  install_github("sdcR")
+} else {
+  library(sdcR)
+}
+
+
+sdcR::code_from_log(
+  list.files(pattern = ".log"),
+  paste0(list.files(pattern = ".log"), ".R")
+)
+}
+```
+
+
